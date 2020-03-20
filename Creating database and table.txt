@@ -1,0 +1,19 @@
+show databases;
+
+create database COFFEE_STORE;
+
+use COFFEE_STORE;
+
+create table PRODUCT(
+id int auto_increment primary key,name varchar(30),price decimal(3,2));
+
+show tables;
+
+create table CUSTOMERS(
+id int auto_increment primary key,First_name varchar(30),Last_name varchar(30),
+Gender enum('M','F'),Phone_number varchar(11));
+
+create table orders(
+id int auto_increment primary key,product_id int,customers_id int,ordertime Datetime,
+foreign key(product_id) references PRODUCT(id),
+foreign key(customers_id) references CUSTOMERS(id));
